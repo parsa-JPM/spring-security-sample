@@ -2,6 +2,7 @@ package ir.codefather.securirty.security;
 
 import ir.codefather.securirty.entities.User;
 import ir.codefather.securirty.entities.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserPrincipalDetailService implements UserDetailsService {
 
+    @Autowired
     private UserRepo repo;
 
     public UserPrincipalDetailService(UserRepo repo) {

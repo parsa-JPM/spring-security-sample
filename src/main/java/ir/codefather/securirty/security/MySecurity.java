@@ -35,10 +35,12 @@ public class MySecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().ignoringAntMatchers("/api/**")
+                .csrf()
+                .ignoringAntMatchers("/api/**")
                 .and()
                 .addFilter(new JWTAuthorizationFilter(authenticationManager(), userRepo))
                 .authorizeRequests()
+                .antMatchers("/api/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin();
